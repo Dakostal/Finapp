@@ -4,6 +4,7 @@ import { useAppDispatch } from '../../../shared/lib/hooks/reduxHooks';
 import { register } from '../model/userSlice';
 import { SignUpSchema, type SignUpFormFields } from '../lib/validation';
 import { useRouter } from '@tanstack/react-router';
+import styles from './SignUpForm.module.scss';
 
 export const SignUpForm = () => {
     const dispatch = useAppDispatch();
@@ -27,38 +28,46 @@ export const SignUpForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+            <div className={styles.field}>
                 <label>Логин</label>
                 <Controller
                     name="login"
                     control={control}
-                    render={({ field }) => <input type="text" placeholder="Логин" {...field} />}
+                    render={({ field }) => (
+                        <input type="text" placeholder="Логин" {...field} />
+                    )}
                 />
-                {errors.login && <span style={{ color: 'red' }}>{errors.login.message}</span>}
+                {errors.login && <p className={styles.error}>{errors.login.message}</p>}
             </div>
 
-            <div>
+            <div className={styles.field}>
                 <label>Пароль</label>
                 <Controller
                     name="password"
                     control={control}
-                    render={({ field }) => <input type="password" placeholder="Пароль" {...field} />}
+                    render={({ field }) => (
+                        <input type="password" placeholder="Пароль" {...field} />
+                    )}
                 />
-                {errors.password && <span style={{ color: 'red' }}>{errors.password.message}</span>}
+                {errors.password && <p className={styles.error}>{errors.password.message}</p>}
             </div>
 
-            <div>
+            <div className={styles.field}>
                 <label>Повторите пароль</label>
                 <Controller
                     name="confirmPassword"
                     control={control}
-                    render={({ field }) => <input type="password" placeholder="Повторите пароль" {...field} />}
+                    render={({ field }) => (
+                        <input type="password" placeholder="Повторите пароль" {...field} />
+                    )}
                 />
-                {errors.confirmPassword && <span style={{ color: 'red' }}>{errors.confirmPassword.message}</span>}
+                {errors.confirmPassword && <p className={styles.error}>{errors.confirmPassword.message}</p>}
             </div>
 
-            <button type="submit">Зарегистрироваться</button>
+            <button type="submit" className={styles.submitButton}>
+                Зарегистрироваться
+            </button>
         </form>
     );
 };

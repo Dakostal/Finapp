@@ -4,6 +4,7 @@ import { useAppDispatch } from '../../../shared/lib/hooks/reduxHooks';
 import { login } from '../model/userSlice';
 import { SignInSchema, type SignInFormFields } from '../lib/validation';
 import { useRouter } from '@tanstack/react-router';
+import styles from './SignInForm.module.scss';
 
 export const SignInForm = () => {
     const dispatch = useAppDispatch();
@@ -27,28 +28,34 @@ export const SignInForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+            <div className={styles.field}>
                 <label>Логин</label>
                 <Controller
                     name="login"
                     control={control}
-                    render={({ field }) => <input type="text" placeholder="Логин" {...field} />}
+                    render={({ field }) => (
+                        <input type="text" placeholder="Логин" {...field} />
+                    )}
                 />
-                {errors.login && <span style={{ color: 'red' }}>{errors.login.message}</span>}
+                {errors.login && <p className={styles.error}>{errors.login.message}</p>}
             </div>
 
-            <div>
+            <div className={styles.field}>
                 <label>Пароль</label>
                 <Controller
                     name="password"
                     control={control}
-                    render={({ field }) => <input type="password" placeholder="Пароль" {...field} />}
+                    render={({ field }) => (
+                        <input type="password" placeholder="Пароль" {...field} />
+                    )}
                 />
-                {errors.password && <span style={{ color: 'red' }}>{errors.password.message}</span>}
+                {errors.password && <p className={styles.error}>{errors.password.message}</p>}
             </div>
 
-            <button type="submit">Войти</button>
+            <button type="submit" className={styles.submitButton}>
+                Войти
+            </button>
         </form>
     );
 };

@@ -1,0 +1,110 @@
+.container {
+  padding: 0 0 32px 0;
+
+  h1 {
+    margin: 0 0 32px 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 40px;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      min-width: 180px;
+
+      label {
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--text-secondary);
+      }
+
+      input,
+      select {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 16px;
+        background: var(--bg-input);
+        color: var(--text-primary);
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: #0066cc;
+          box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+        }
+      }
+    }
+
+    button {
+      padding: 12px 24px;
+      background: #6c757d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      align-self: flex-end;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #5a6268;
+      }
+    }
+  }
+
+  .empty {
+    color: var(--text-secondary);
+    font-size: 16px;
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+
+    th,
+    td {
+      padding: 14px 16px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      color: var(--text-primary);
+    }
+
+    th {
+      background: #f0f0f0;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    button {
+      background: #dc3545;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #c82333;
+      }
+    }
+  }
+}

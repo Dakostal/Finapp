@@ -1,0 +1,22 @@
+.appLayout {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  background: var(--bg-primary);
+  overflow: hidden;
+
+  & .rightColumn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  & .mainContent {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px;
+    background: var(--bg-primary);
+  }
+}
+

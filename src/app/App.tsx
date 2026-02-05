@@ -1,10 +1,14 @@
 import { StoreProvider } from './providers/StoreProvider';
 import { AppRouterProvider } from './providers/RouterProvider';
+import { ThemeProvider } from './providers/ThemeProvider';
 
 export const App = () => {
     return (
         <StoreProvider>
-          <AppRouterProvider />
+            <ThemeProvider>
+                <AppRouterProvider />
+            </ThemeProvider>
+            
         </StoreProvider>
     );
 };

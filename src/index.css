@@ -11,6 +11,20 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --bg-primary: #ffffff;
+  --text-primary: #000000;
+  --bg-secondary: #f0f0f0;
+  --text-secondary: #333333;
+  --sidebar-bg: #f8f8f8;
+  --sidebar-text: #333;
+  --sidebar-title: #333;
+  --sidebar-link: #333;
+  --sidebar-hover: rgba(0, 102, 204, 0.1);
+  --sidebar-hover-text: #0066cc;
+  --sidebar-active: #0066cc;
+  --sidebar-active-bg: rgba(0, 102, 204, 0.05);
+  --border-color: #eee;
 }
 
 a {
@@ -24,10 +38,28 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background 0.3s, color 0.3s;
+}
+
+body.dark {
+    --bg-primary: #121212;
+    --text-primary: #ffffff;
+    --bg-secondary: #1e1e1e;
+    --text-secondary: #dddddd;
+    --sidebar-bg: #1e1e1e;
+  --sidebar-text: #e0e0e0;
+  --sidebar-title: #ffffff;
+  --sidebar-link: #e0e0e0;
+  --sidebar-hover: rgba(255, 255, 255, 0.08);
+  --sidebar-hover-text: #4da6ff;
+  --sidebar-active: #4da6ff;
+  --sidebar-active-bg: rgba(77, 166, 255, 0.12);
+  --border-color: #333;
 }
 
 h1 {

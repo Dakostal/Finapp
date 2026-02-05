@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const getRegisteredUsers = (): { login: string }[] => {
+const getRegisteredUsers = (): { login: string, password: string }[] => {
     return JSON.parse(localStorage.getItem('registeredUsers') || '[]');
 };
 
@@ -12,7 +12,7 @@ export const SignInSchema = z.object({
     return users.some(u => u.login === data.login && u.password === data.password);
 }, {
     message: 'Неверный логин или пароль',
-    path: ['login'],
+    path: ['login'], 
 });
 
 export const SignUpSchema = z.object({
